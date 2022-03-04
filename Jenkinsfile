@@ -15,7 +15,13 @@ pipeline{
             }
         }
 
-stage('Release') {
+        stage("Test"){
+            steps{
+                sh "npm test"
+            }
+        }
+
+        stage('Release') {
 
  steps {
 
@@ -31,12 +37,5 @@ stage('Release') {
 
 }
 
-        stage("Test"){
-            steps{
-                sh "npm test"
-            }
-        }
-
-        // Add the Release stage here
     }
 }
