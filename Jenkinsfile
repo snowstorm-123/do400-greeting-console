@@ -15,6 +15,22 @@ pipeline{
             }
         }
 
+stage('Release') {
+
+ steps {
+
+ sh '''
+
+ oc project maummv-greetings
+
+ oc start-build greeting-console --follow --wait
+
+ '''
+
+ }
+
+}
+
         stage("Test"){
             steps{
                 sh "npm test"
